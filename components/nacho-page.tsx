@@ -14,17 +14,14 @@ import {
   Download,
   Mail,
   MapPin,
-  Menu,
   MessageCircle,
   Quote,
   Sparkles,
   Star,
   Users,
   Utensils,
-  X,
 } from 'lucide-react'
-import { Spotlight } from '@/components/ui/spotlight'
-import { CursorSpotlight } from '@/components/ui/cursor-spotlight'
+import PortfolioHero from '@/components/ui/portfolio-hero'
 import { cn } from '@/lib/utils'
 
 function Instagram({ size = 20 }: { size?: number }) {
@@ -48,14 +45,6 @@ function Instagram({ size = 20 }: { size?: number }) {
 
 const WHATSAPP_LINK = 'https://wa.link/27gd5m'
 const INSTAGRAM_LINK = 'https://www.instagram.com/nacho.nutriciondeportiva/'
-
-const NAV_LINKS = [
-  { id: 'quien-soy', label: 'Quién Soy' },
-  { id: 'que-hago', label: 'Qué Hago' },
-  { id: 'casos-de-exito', label: 'Casos de Éxito' },
-  { id: 'recursos', label: 'Recursos' },
-  { id: 'contacto', label: 'Contacto' },
-]
 
 const SERVICES = [
   {
@@ -185,196 +174,6 @@ function Eyebrow({ children }: { children: ReactNode }) {
     <p className="mb-3 font-display text-sm font-bold uppercase tracking-[0.2em] text-accent">
       {children}
     </p>
-  )
-}
-
-function PrimaryButton({
-  href,
-  children,
-  className,
-}: {
-  href: string
-  children: ReactNode
-  className?: string
-}) {
-  return (
-    <a
-      href={href}
-      target={href.startsWith('http') ? '_blank' : undefined}
-      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-      className={cn(
-        'inline-flex w-fit items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-accent-foreground transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(207,255,51,0.25)]',
-        className
-      )}
-    >
-      {children}
-    </a>
-  )
-}
-
-function GhostButton({ href, children }: { href: string; children: ReactNode }) {
-  return (
-    <a
-      href={href}
-      className="inline-flex w-fit items-center gap-2 rounded-full border border-border px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-foreground transition-colors duration-200 hover:border-accent hover:text-accent"
-    >
-      {children}
-    </a>
-  )
-}
-
-function Header() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  return (
-    <header
-      className={cn(
-        'fixed top-0 z-50 w-full border-b transition-colors duration-300',
-        scrolled
-          ? 'border-border bg-background/85 backdrop-blur-md'
-          : 'border-transparent bg-transparent'
-      )}
-    >
-      <div className="mx-auto flex w-[90%] max-w-6xl items-center justify-between py-4">
-        <a href="#top" className="font-display text-2xl uppercase tracking-tight">
-          Nacho<span className="text-accent">.</span>Nutrición
-        </a>
-
-        <nav className="hidden items-center gap-8 md:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
-              className="text-sm font-semibold uppercase tracking-wide text-muted-foreground transition-colors hover:text-accent"
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hidden md:block">
-          <PrimaryButton href={WHATSAPP_LINK} className="px-5 py-2.5 text-xs">
-            Reservar Turno
-          </PrimaryButton>
-        </div>
-
-        <button
-          type="button"
-          aria-label="Abrir menú"
-          className="text-foreground md:hidden"
-          onClick={() => setMenuOpen((v) => !v)}
-        >
-          {menuOpen ? <X size={26} /> : <Menu size={26} />}
-        </button>
-      </div>
-
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="overflow-hidden border-t border-border bg-background md:hidden"
-          >
-            <div className="flex flex-col gap-1 px-[5%] py-4">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.id}
-                  href={`#${link.id}`}
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-lg px-2 py-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground hover:bg-card hover:text-accent"
-                >
-                  {link.label}
-                </a>
-              ))}
-              <PrimaryButton href={WHATSAPP_LINK} className="mt-2 justify-center">
-                Reservar Turno
-              </PrimaryButton>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
-  )
-}
-
-function Hero() {
-  return (
-    <section id="top" className="relative overflow-hidden pt-40 pb-24 md:pt-48">
-      <Spotlight className="-top-40 left-0 md:left-40 md:-top-20" fill="#cfff33" />
-
-      <div className="relative mx-auto grid w-[90%] max-w-6xl items-center gap-14 md:grid-cols-2">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Eyebrow>Nutrición Deportiva · Córdoba</Eyebrow>
-          <h1 className="font-display text-6xl leading-[0.95] tracking-tight sm:text-7xl md:text-8xl">
-            Comé bien,
-            <br />
-            sin pasarla mal.
-            <br />
-            <span className="text-accent">Rendí mejor.</span>
-          </h1>
-          <p className="mt-6 max-w-md text-base text-muted-foreground md:text-lg">
-            Nutrición deportiva pensada para vos: rendí mejor dentro y fuera de la
-            cancha con un plan real, sostenible y hecho a tu medida.
-          </p>
-
-          <div className="mt-9 flex flex-wrap gap-4">
-            <PrimaryButton href={WHATSAPP_LINK}>
-              <MessageCircle size={18} />
-              Reservar Turno
-            </PrimaryButton>
-            <GhostButton href="#que-hago">Ver servicios</GhostButton>
-          </div>
-
-          <div className="mt-12 flex flex-wrap gap-x-10 gap-y-4">
-            {STATS.map((stat) => (
-              <div key={stat.label}>
-                <p className="font-display text-3xl text-accent">
-                  {stat.value}
-                  {stat.suffix}
-                </p>
-                <p className="text-xs uppercase tracking-wide text-muted-foreground">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="relative mx-auto w-full max-w-sm"
-        >
-          <div className="absolute -inset-3 rounded-[2rem] bg-[conic-gradient(from_140deg,#cfff33,#ff5fa2,#ffb545,#4fd1ff,#cfff33)] opacity-70 blur-md" />
-          <div className="relative overflow-hidden rounded-[1.75rem] border border-border bg-card">
-            <CursorSpotlight size={280} />
-            <Image
-              src="https://images.unsplash.com/photo-1607962837359-5e7e89f86776?w=800&q=80"
-              alt="Sesión de nutrición deportiva"
-              width={800}
-              height={1000}
-              priority
-              className="aspect-[4/5] w-full object-cover"
-            />
-          </div>
-        </motion.div>
-      </div>
-    </section>
   )
 }
 
@@ -893,9 +692,8 @@ function FloatingWhatsApp() {
 export default function NachoPage() {
   return (
     <>
-      <Header />
+      <PortfolioHero />
       <main className="flex-1">
-        <Hero />
         <QuienSoy />
         <QueHago />
         <CasosDeExito />
