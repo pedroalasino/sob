@@ -21,10 +21,10 @@ import {
   Users,
   Utensils,
 } from 'lucide-react'
-import PortfolioHero from '@/components/ui/portfolio-hero'
+import { MinimalistHero } from '@/components/ui/minimalist-hero'
 import { cn } from '@/lib/utils'
 
-function Instagram({ size = 20 }: { size?: number }) {
+function Instagram({ size = 20, className }: { size?: number; className?: string }) {
   return (
     <svg
       width={size}
@@ -35,6 +35,7 @@ function Instagram({ size = 20 }: { size?: number }) {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
+      className={className}
     >
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
@@ -689,10 +690,34 @@ function FloatingWhatsApp() {
   )
 }
 
+const HERO_NAV_LINKS = [
+  { label: 'QUIÉN SOY', href: '#quien-soy' },
+  { label: 'QUÉ HAGO', href: '#que-hago' },
+  { label: 'CASOS DE ÉXITO', href: '#casos-de-exito' },
+  { label: 'RECURSOS', href: '#recursos' },
+  { label: 'CONTACTO', href: '#contacto' },
+]
+
+const HERO_SOCIAL_LINKS = [
+  { icon: MessageCircle, href: WHATSAPP_LINK, label: 'WhatsApp' },
+  { icon: Instagram, href: INSTAGRAM_LINK, label: 'Instagram' },
+]
+
 export default function NachoPage() {
   return (
     <>
-      <PortfolioHero />
+      <MinimalistHero
+        logoText="NACHO."
+        navLinks={HERO_NAV_LINKS}
+        mainText="Nutrición deportiva pensada para vos: rendí mejor dentro y fuera de la cancha con un plan real y sostenible, sin dietas imposibles."
+        readMoreLink="#quien-soy"
+        readMoreLabel="Leer más"
+        imageSrc="/nacho-olmedo.jpg"
+        imageAlt="Nacho Olmedo, nutricionista deportivo"
+        overlayText={{ part1: 'RENDÍ', part2: 'MEJOR.' }}
+        socialLinks={HERO_SOCIAL_LINKS}
+        locationText="Córdoba, Argentina"
+      />
       <main className="flex-1">
         <QuienSoy />
         <QueHago />
