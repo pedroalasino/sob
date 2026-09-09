@@ -141,7 +141,8 @@ export const MinimalistHero = ({
             viewport={{ once: false, amount: 0.5 }}
             whileHover={{ scale: 1.06 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="absolute z-0 h-[240px] w-[240px] cursor-pointer rounded-full bg-accent/90 md:h-[310px] md:w-[310px] lg:h-[370px] lg:w-[370px]"
+            className="absolute z-0 h-[240px] w-[240px] -translate-x-12 cursor-pointer rounded-full bg-cover bg-center md:h-[310px] md:w-[310px] md:-translate-x-20 lg:h-[380px] lg:w-[380px] lg:-translate-x-24"
+            style={{ backgroundImage: 'url(/hero-circle-texture.png)' }}
           />
           <motion.div
             className="relative z-10"
