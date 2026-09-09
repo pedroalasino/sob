@@ -181,7 +181,7 @@ function Eyebrow({ children }: { children: ReactNode }) {
 const ACHIEVEMENTS = [
   {
     label: '+20 Deportistas Mejorados',
-    color: '#cfff33',
+    color: '#7cb305',
     desc: 'Acompañamiento nutricional en rugby, fútbol, running y triatlón.',
   },
   {
@@ -722,7 +722,7 @@ function FloatingWhatsApp() {
           initial={{ opacity: 0, scale: 0.6, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.6, y: 20 }}
-          className="fixed bottom-6 right-6 z-50 flex size-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[0_10px_30px_rgba(207,255,51,0.35)]"
+          className="fixed bottom-6 right-6 z-50 flex size-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[0_10px_30px_rgba(124,179,5,0.35)]"
         >
           <MessageCircle size={24} />
         </motion.a>
