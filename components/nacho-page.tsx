@@ -178,69 +178,110 @@ function Eyebrow({ children }: { children: ReactNode }) {
   )
 }
 
-function QuienSoy() {
-  const points = [
-    'Nutricionista especializado en rendimiento deportivo',
-    'Filosofía "comer bien sin pasarla mal", sin dietas imposibles',
-    'Seguimiento con mediciones reales, no solo la balanza',
-    'Atención en Córdoba, online y presencial',
-  ]
+const ACHIEVEMENTS = [
+  {
+    label: '+20 Deportistas Mejorados',
+    color: '#cfff33',
+    desc: 'Acompañamiento nutricional en rugby, fútbol, running y triatlón.',
+  },
+  {
+    label: 'Nutrición Pre/Post Entrenamiento',
+    color: '#4fd1ff',
+    desc: 'Qué comer antes de jugar, antes de entrenar y después de competir para rendir y recuperar mejor.',
+  },
+  {
+    label: 'Seguimiento con Antropometría',
+    color: '#ff5fa2',
+    desc: 'Medimos tu composición corporal real, no solo la balanza.',
+  },
+]
 
+function AchievementBadge({ label, color, desc }: { label: string; color: string; desc: string }) {
+  return (
+    <div className="group">
+      <span
+        className="inline-block cursor-default rounded-full px-4 py-2 text-sm font-bold"
+        style={{ backgroundColor: color, color: '#0a0a0b' }}
+      >
+        {label}
+      </span>
+      <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-hover:grid-rows-[1fr]">
+        <div className="overflow-hidden">
+          <p className="mt-2 max-w-md text-sm text-muted-foreground">{desc}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function QuienSoy() {
   return (
     <Section id="quien-soy">
-      <div className="grid items-center gap-14 md:grid-cols-2">
+      <div className="grid gap-14 md:grid-cols-[minmax(0,280px)_1fr]">
         <motion.div
           initial={{ opacity: 0, x: -24 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6 }}
-          className="order-2 md:order-1"
+          className="mx-auto w-full max-w-xs text-center md:mx-0"
         >
-          <Eyebrow>¿Quién Soy?</Eyebrow>
-          <h2 className="font-display text-5xl tracking-tight sm:text-6xl">
-            Nacho Olmedo
-          </h2>
-          <p className="mt-5 text-muted-foreground">
-            Soy nutricionista y me especializo en nutrición deportiva. Trabajo con
-            deportistas amateurs y profesionales que quieren rendir más, recuperarse
-            mejor y sentirse bien con lo que comen, todos los días.
+          <div className="overflow-hidden rounded-2xl border-2 border-accent">
+            <Image
+              src="/nacho-olmedo.png"
+              alt="Nacho Olmedo"
+              width={480}
+              height={600}
+              className="aspect-[4/5] w-full bg-card object-cover object-top"
+            />
+          </div>
+          <h3 className="font-display mt-5 text-3xl text-accent">Nacho Olmedo</h3>
+          <p className="mt-1 text-sm font-bold uppercase tracking-wide text-foreground">
+            Lic. en Nutrición Deportiva
           </p>
-          <p className="mt-4 text-muted-foreground">
-            Ya acompañé a más de 20 deportistas de distintas disciplinas —rugby,
-            fútbol, running, triatlón— a mejorar su alimentación sin volverse locos
-            con dietas restrictivas.
-          </p>
-
-          <ul className="mt-8 space-y-3">
-            {points.map((point) => (
-              <li key={point} className="flex items-start gap-3">
-                <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-accent" />
-                <span className="text-sm text-foreground/90">{point}</span>
-              </li>
-            ))}
-          </ul>
+          <a
+            href={INSTAGRAM_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-bold uppercase tracking-wide text-accent-foreground transition-transform duration-200 hover:-translate-y-0.5"
+          >
+            <Instagram size={18} />
+            Ver Instagram
+          </a>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, x: 24 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="order-1 md:order-2"
         >
-          <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-[1.75rem] border border-border">
-            <Image
-              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80"
-              alt="Nacho Olmedo, nutricionista deportivo"
-              width={800}
-              height={1000}
-              className="aspect-[4/5] w-full object-cover"
-            />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-5">
-              <p className="text-sm font-bold uppercase tracking-wide text-accent">
-                Lic. en Nutrición
-              </p>
-              <p className="text-xs text-white/80">Nutrición Deportiva · Córdoba</p>
+          <h2 className="font-display text-5xl tracking-tight text-accent sm:text-6xl">
+            Resultados
+          </h2>
+          <p className="mt-2 text-sm font-bold uppercase tracking-wide text-muted-foreground">
+            Logros recientes en nutrición deportiva:
+          </p>
+
+          <div className="mt-6 space-y-5">
+            {ACHIEVEMENTS.map((a) => (
+              <AchievementBadge key={a.label} {...a} />
+            ))}
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-xl border border-border border-l-4 border-l-accent bg-card p-5">
+              <p className="font-display text-lg text-accent">Formación</p>
+              <ul className="mt-2 space-y-1 text-sm text-foreground/90">
+                <li>• Lic. en Nutrición</li>
+                <li>• Especialización en Nutrición Deportiva</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-border border-l-4 border-l-accent bg-card p-5">
+              <p className="font-display text-lg text-accent">Enfoque</p>
+              <ul className="mt-2 space-y-1 text-sm text-foreground/90">
+                <li>• Comer bien sin pasarla mal</li>
+                <li>• Seguimiento con mediciones reales</li>
+              </ul>
             </div>
           </div>
         </motion.div>
