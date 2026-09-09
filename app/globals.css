@@ -29,7 +29,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-montserrat), 'Arial', sans-serif;
+  font-family: var(--font-libre-franklin), Arial, sans-serif;
   line-height: 1.6;
 }
 
@@ -39,8 +39,9 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-display), 'Arial Narrow', sans-serif;
-  letter-spacing: 0.01em;
+  font-family: var(--font-libre-franklin), Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 /* Spotlight animation (used by hero glow) */

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Geist, Geist_Mono, Montserrat } from "next/font/google";
+import { Geist, Geist_Mono, Libre_Franklin } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,16 +12,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const libreFranklin = Libre_Franklin({
+  variable: "--font-libre-franklin",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
-
-const bebasNeue = Bebas_Neue({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -37,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} ${montserrat.variable} ${bebasNeue.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${libreFranklin.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">{children}</body>
     </html>
