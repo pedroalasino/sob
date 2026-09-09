@@ -11,9 +11,6 @@ type IconComponent = LucideIcon | React.ComponentType<{ className?: string }>
 interface MinimalistHeroProps {
   logoText: string
   navLinks: { label: string; href: string }[]
-  mainText: string
-  readMoreLink: string
-  readMoreLabel?: string
   imageSrc: string
   imageAlt: string
   overlayText: {
@@ -57,9 +54,6 @@ const SocialIcon = ({
 export const MinimalistHero = ({
   logoText,
   navLinks,
-  mainText,
-  readMoreLink,
-  readMoreLabel = 'Leer más',
   imageSrc,
   imageAlt,
   overlayText,
@@ -138,32 +132,15 @@ export const MinimalistHero = ({
       </header>
 
       {/* Main Content Area */}
-      <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3">
-        {/* Left Text Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1 }}
-          className="z-20 order-2 text-center md:order-1 md:text-left"
-        >
-          <p className="mx-auto max-w-xs text-sm leading-relaxed text-foreground/80 md:mx-0">
-            {mainText}
-          </p>
-          <a
-            href={readMoreLink}
-            className="mt-4 inline-block text-sm font-medium text-foreground underline decoration-from-font"
-          >
-            {readMoreLabel}
-          </a>
-        </motion.div>
-
-        {/* Center Image with Circle */}
-        <div className="relative order-1 flex h-full items-center justify-center md:order-2">
+      <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center gap-10 md:grid-cols-2">
+        {/* Image with Circle */}
+        <div className="relative order-1 flex h-full items-center justify-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
+            whileHover={{ scale: 1.06 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="absolute z-0 h-[240px] w-[240px] rounded-full bg-accent/90 md:h-[310px] md:w-[310px] lg:h-[370px] lg:w-[370px]"
+            className="absolute z-0 h-[240px] w-[240px] cursor-pointer rounded-full bg-accent/90 md:h-[310px] md:w-[310px] lg:h-[370px] lg:w-[370px]"
           />
           <motion.div
             className="relative z-10"
@@ -187,13 +164,17 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, y: 90 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 1 }}
-          className="z-20 order-3 flex items-center justify-center text-center md:justify-start"
+          className="z-20 order-2 flex items-center justify-center text-center md:justify-start"
         >
-          <h1 className="font-display text-3xl leading-[1.1] text-foreground sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl">
+          <motion.h1
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display cursor-default text-3xl leading-[1.1] text-foreground sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl"
+          >
             {overlayText.part1}
             <br />
             <span className="text-accent">{overlayText.part2}</span>
-          </h1>
+          </motion.h1>
         </motion.div>
       </div>
 

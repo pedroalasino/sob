@@ -750,9 +750,6 @@ export default function NachoPage() {
       <MinimalistHero
         logoText="Nacho."
         navLinks={HERO_NAV_LINKS}
-        mainText="Nutrición deportiva pensada para vos: rendí mejor dentro y fuera de la cancha con un plan real y sostenible, sin dietas imposibles."
-        readMoreLink="#quien-soy"
-        readMoreLabel="Leer más"
         imageSrc="/nacho-olmedo.png"
         imageAlt="Nacho Olmedo, nutricionista deportivo"
         overlayText={{ part1: 'COMER BIEN', part2: 'SIN PASARLA MAL.' }}
