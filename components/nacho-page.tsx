@@ -755,8 +755,8 @@ export default function NachoPage() {
         overlayText={{ part1: 'COMER BIEN', part2: 'SIN PASARLA MAL.' }}
         socialLinks={HERO_SOCIAL_LINKS}
         locationText="Córdoba, Argentina"
-        ctaLabel="Ver Servicios"
-        ctaHref="#que-hago"
+        ctaLabel="Hacé tu reserva"
+        ctaHref={WHATSAPP_LINK}
       />
       <main className="flex-1">
         <QuienSoy />

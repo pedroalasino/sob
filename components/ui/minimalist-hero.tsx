@@ -1,10 +1,11 @@
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowUpRight, X, type LucideIcon } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { ArrowUpRight, type LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { KineticMenu } from '@/components/ui/kinetic-menu'
 
 type IconComponent = LucideIcon | React.ComponentType<{ className?: string }>
 
@@ -23,15 +24,6 @@ interface MinimalistHeroProps {
   ctaHref?: string
   className?: string
 }
-
-const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a
-    href={href}
-    className="text-sm font-medium tracking-widest text-foreground/60 transition-colors hover:text-foreground"
-  >
-    {children}
-  </a>
-)
 
 const SocialIcon = ({
   href,
@@ -65,8 +57,6 @@ export const MinimalistHero = ({
   ctaHref,
   className,
 }: MinimalistHeroProps) => {
-  const [menuOpen, setMenuOpen] = useState(false)
-
   return (
     <div
       id="top"
@@ -76,7 +66,7 @@ export const MinimalistHero = ({
       )}
     >
       {/* Header */}
-      <header className="relative z-30 flex w-full max-w-7xl items-center justify-between">
+      <header className="relative z-[110] flex w-full max-w-7xl items-center justify-between">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -85,54 +75,13 @@ export const MinimalistHero = ({
         >
           {logoText}
         </motion.div>
-        <div className="hidden items-center space-x-8 md:flex">
-          {navLinks.map((link) => (
-            <NavLink key={link.label} href={link.href}>
-              {link.label}
-            </NavLink>
-          ))}
-        </div>
-        <motion.button
+        <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative z-30 flex flex-col space-y-1.5 md:hidden"
-          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
-          onClick={() => setMenuOpen((v) => !v)}
         >
-          {menuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <>
-              <span className="block h-0.5 w-6 bg-foreground" />
-              <span className="block h-0.5 w-6 bg-foreground" />
-              <span className="block h-0.5 w-5 bg-foreground" />
-            </>
-          )}
-        </motion.button>
-
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.2 }}
-              className="absolute top-full right-8 z-30 mt-3 flex flex-col gap-1 rounded-lg border border-border bg-background p-4 shadow-2xl md:hidden"
-            >
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-md px-2 py-2 text-sm font-medium tracking-widest text-foreground/70 hover:bg-card hover:text-foreground"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+          <KineticMenu navLinks={navLinks} />
+        </motion.div>
       </header>
 
       {/* Main Content Area */}
