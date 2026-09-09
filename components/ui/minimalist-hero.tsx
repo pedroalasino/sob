@@ -141,7 +141,7 @@ export const MinimalistHero = ({
             viewport={{ once: false, amount: 0.5 }}
             whileHover={{ scale: 1.06 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="absolute z-0 h-[240px] w-[240px] -translate-x-12 cursor-pointer rounded-full bg-cover bg-center md:h-[310px] md:w-[310px] md:-translate-x-20 lg:h-[380px] lg:w-[380px] lg:-translate-x-24"
+            className="absolute z-0 h-[290px] w-[290px] -translate-x-16 cursor-pointer rounded-full bg-cover bg-center md:h-[370px] md:w-[370px] md:-translate-x-24 lg:h-[450px] lg:w-[450px] lg:-translate-x-28"
             style={{ backgroundImage: 'url(/hero-circle-texture.png)' }}
           />
           <motion.div
@@ -154,10 +154,10 @@ export const MinimalistHero = ({
             <Image
               src={imageSrc}
               alt={imageAlt}
-              width={370}
-              height={508}
+              width={451}
+              height={607}
               priority
-              className="w-[300px] drop-shadow-2xl md:w-[400px] lg:w-[480px]"
+              className="w-[360px] drop-shadow-2xl md:w-[470px] lg:w-[560px]"
             />
           </motion.div>
         </div>
@@ -173,7 +173,7 @@ export const MinimalistHero = ({
           <motion.h1
             whileHover={{ scale: 1.04 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display cursor-default text-3xl leading-[1.1] text-foreground sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl"
+            className="font-display cursor-default text-4xl leading-[1.1] text-foreground sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl"
           >
             {overlayText.part1}
             <br />
