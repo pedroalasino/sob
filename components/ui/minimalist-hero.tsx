@@ -168,12 +168,12 @@ export const MinimalistHero = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.5 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 1 }}
-          className="z-20 order-2 flex items-center justify-center text-center md:justify-start"
+          className="z-20 order-2 flex items-center justify-center text-center -translate-y-10 translate-x-6 sm:-translate-y-14 sm:translate-x-10 md:translate-y-0 md:translate-x-0 md:justify-start"
         >
           <motion.h1
             whileHover={{ scale: 1.04 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display cursor-default text-4xl leading-[1.1] text-foreground sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl"
+            className="font-display cursor-default text-6xl leading-[1.05] text-foreground sm:text-7xl md:text-5xl lg:text-6xl xl:text-7xl"
           >
             {overlayText.part1}
             <br />
