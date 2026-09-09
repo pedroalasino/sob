@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, type LucideIcon } from 'lucide-react'
+import { ArrowUpRight, X, type LucideIcon } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 type IconComponent = LucideIcon | React.ComponentType<{ className?: string }>
@@ -19,6 +19,8 @@ interface MinimalistHeroProps {
   }
   socialLinks: { icon: IconComponent; href: string; label: string }[]
   locationText: string
+  ctaLabel?: string
+  ctaHref?: string
   className?: string
 }
 
@@ -59,6 +61,8 @@ export const MinimalistHero = ({
   overlayText,
   socialLinks,
   locationText,
+  ctaLabel,
+  ctaHref,
   className,
 }: MinimalistHeroProps) => {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -168,7 +172,7 @@ export const MinimalistHero = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.5 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 1 }}
-          className="z-20 order-2 flex items-center justify-center text-center -translate-y-10 translate-x-6 sm:-translate-y-14 sm:translate-x-10 md:translate-y-0 md:translate-x-0 md:justify-start"
+          className="z-20 order-2 flex flex-col items-center justify-center gap-8 text-center -translate-y-10 translate-x-6 sm:-translate-y-14 sm:translate-x-10 md:translate-y-0 md:translate-x-0 md:items-start md:justify-start md:text-left"
         >
           <motion.h1
             whileHover={{ scale: 1.04 }}
@@ -179,6 +183,22 @@ export const MinimalistHero = ({
             <br />
             <span className="text-accent">{overlayText.part2}</span>
           </motion.h1>
+
+          {ctaLabel && ctaHref && (
+            <motion.a
+              href={ctaHref}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.5 }}
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+              className="font-display inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm tracking-wide text-accent-foreground shadow-lg shadow-accent/30"
+            >
+              {ctaLabel}
+              <ArrowUpRight className="h-4 w-4" />
+            </motion.a>
+          )}
         </motion.div>
       </div>
 
@@ -188,7 +208,7 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 1.2 }}
-          className="flex items-center space-x-4"
+          className="flex translate-y-2 items-center space-x-4"
         >
           {socialLinks.map((link) => (
             <SocialIcon key={link.label} href={link.href} icon={link.icon} label={link.label} />
