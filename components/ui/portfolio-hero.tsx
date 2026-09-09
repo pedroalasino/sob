@@ -173,16 +173,14 @@ export default function PortfolioHero() {
             </div>
 
             <div className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
-              <div className="h-[110px] w-[65px] cursor-pointer overflow-hidden rounded-full shadow-2xl transition-transform duration-300 hover:scale-110 sm:h-[152px] sm:w-[90px] md:h-[185px] md:w-[110px] lg:h-[218px] lg:w-[129px]">
-                <Image
-                  src="/nacho-olmedo.jpg"
-                  alt="Nacho Olmedo"
-                  width={192}
-                  height={192}
-                  priority
-                  className="h-full w-full object-cover"
-                />
-              </div>
+              <Image
+                src="/nacho-olmedo.png"
+                alt="Nacho Olmedo"
+                width={370}
+                height={508}
+                priority
+                className="w-[180px] cursor-pointer drop-shadow-2xl transition-transform duration-300 hover:scale-105 sm:w-[230px] md:w-[280px] lg:w-[330px]"
+              />
             </div>
           </div>
         </div>
