@@ -67,7 +67,7 @@ export const MinimalistHero = ({
     <div
       id="top"
       className={cn(
-        'relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-background p-8 font-sans md:p-12',
+        'relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-background p-8 md:p-12',
         className
       )}
     >
