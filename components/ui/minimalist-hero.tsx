@@ -163,7 +163,7 @@ export const MinimalistHero = ({
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="absolute z-0 h-[260px] w-[260px] rounded-full bg-accent/90 md:h-[340px] md:w-[340px] lg:h-[400px] lg:w-[400px]"
+            className="absolute z-0 h-[220px] w-[220px] rounded-full bg-accent/90 md:h-[290px] md:w-[290px] lg:h-[340px] lg:w-[340px]"
           />
           <motion.div
             className="relative z-10"
@@ -177,19 +177,19 @@ export const MinimalistHero = ({
               width={370}
               height={508}
               priority
-              className="w-[220px] drop-shadow-2xl md:w-[290px] lg:w-[340px]"
+              className="w-[270px] drop-shadow-2xl md:w-[350px] lg:w-[410px]"
             />
           </motion.div>
         </div>
 
         {/* Right Text */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -90 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
           className="z-20 order-3 flex items-center justify-center text-center md:justify-start"
         >
-          <h1 className="font-display text-7xl leading-[0.9] text-foreground md:text-8xl lg:text-9xl">
+          <h1 className="font-display text-5xl leading-[0.95] text-foreground sm:text-6xl md:text-6xl lg:text-7xl">
             {overlayText.part1}
             <br />
             <span className="text-accent">{overlayText.part2}</span>

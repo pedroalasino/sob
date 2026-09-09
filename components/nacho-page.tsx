@@ -755,7 +755,7 @@ export default function NachoPage() {
         readMoreLabel="Leer más"
         imageSrc="/nacho-olmedo.png"
         imageAlt="Nacho Olmedo, nutricionista deportivo"
-        overlayText={{ part1: 'RENDÍ', part2: 'MEJOR.' }}
+        overlayText={{ part1: 'COMER BIEN', part2: 'SIN PASARLA MAL.' }}
         socialLinks={HERO_SOCIAL_LINKS}
         locationText="Córdoba, Argentina"
       />
