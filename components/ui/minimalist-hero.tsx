@@ -115,9 +115,16 @@ export const MinimalistHero = ({
             viewport={{ once: false, amount: 0.5 }}
             whileHover={{ scale: 1.06 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="absolute z-0 h-[290px] w-[290px] -translate-x-16 cursor-pointer rounded-full bg-cover bg-center md:h-[370px] md:w-[370px] md:-translate-x-24 lg:h-[450px] lg:w-[450px] lg:-translate-x-28"
-            style={{ backgroundImage: 'url(/hero-circle-texture.png)' }}
-          />
+            className="absolute z-0 -translate-x-16 cursor-pointer md:-translate-x-24 lg:-translate-x-28"
+          >
+            <Image
+              src="/hero-heart-food.png"
+              alt=""
+              width={410}
+              height={607}
+              className="h-[290px] w-auto md:h-[370px] lg:h-[450px]"
+            />
+          </motion.div>
           <motion.div
             className="relative z-10"
             initial={{ opacity: 0, y: 50 }}
