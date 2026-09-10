@@ -61,9 +61,10 @@ export const MinimalistHero = ({
     <div
       id="top"
       className={cn(
-        'relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden bg-background p-8 md:p-12',
+        'relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden p-8 md:p-12',
         className
       )}
+      style={{ backgroundColor: '#a8b379' }}
     >
       {/* Header */}
       <header className="relative z-[110] flex w-full max-w-7xl items-center justify-between">
