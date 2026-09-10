@@ -107,38 +107,22 @@ export const MinimalistHero = ({
 
       {/* Main Content Area */}
       <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center gap-10 md:grid-cols-2">
-        {/* Image with Circle */}
-        <div className="relative order-1 flex h-full items-center justify-center">
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: false, amount: 0.5 }}
-            whileHover={{ scale: 1.06 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-            className="absolute z-0 -translate-x-16 cursor-pointer md:-translate-x-24 lg:-translate-x-28"
-          >
-            <Image
-              src="/hero-heart-food.png"
-              alt=""
-              width={410}
-              height={607}
-              className="h-[290px] w-auto md:h-[370px] lg:h-[450px]"
-            />
-          </motion.div>
+        {/* Image */}
+        <div className="relative order-1 flex h-full items-center justify-center overflow-hidden">
           <motion.div
             className="relative z-10"
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 220 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.5 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+            viewport={{ once: false, amount: 'some' }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           >
             <Image
               src={imageSrc}
               alt={imageAlt}
-              width={451}
-              height={607}
+              width={944}
+              height={594}
               priority
-              className="w-[360px] drop-shadow-2xl md:w-[470px] lg:w-[560px]"
+              className="w-[360px] drop-shadow-2xl sm:w-[440px] md:w-[500px] lg:w-[600px]"
             />
           </motion.div>
         </div>
