@@ -754,7 +754,6 @@ export default function NachoPage() {
         imageAlt="Nacho Olmedo, nutricionista deportivo"
         overlayText={{ part1: 'COMER BIEN', part2: 'SIN PASARLA MAL.' }}
         socialLinks={HERO_SOCIAL_LINKS}
-        locationText="Córdoba, Argentina"
         ctaLabel="Hacé tu reserva"
         ctaHref={WHATSAPP_LINK}
       />

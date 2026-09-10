@@ -19,7 +19,6 @@ interface MinimalistHeroProps {
     part2: string
   }
   socialLinks: { icon: IconComponent; href: string; label: string }[]
-  locationText: string
   ctaLabel?: string
   ctaHref?: string
   className?: string
@@ -52,7 +51,6 @@ export const MinimalistHero = ({
   imageAlt,
   overlayText,
   socialLinks,
-  locationText,
   ctaLabel,
   ctaHref,
   className,
@@ -185,14 +183,6 @@ export const MinimalistHero = ({
           {socialLinks.map((link) => (
             <SocialIcon key={link.label} href={link.href} icon={link.icon} label={link.label} />
           ))}
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.3 }}
-          className="text-sm font-medium text-foreground/80"
-        >
-          {locationText}
         </motion.div>
       </footer>
     </div>
