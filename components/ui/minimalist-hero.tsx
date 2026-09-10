@@ -72,17 +72,18 @@ export const MinimalistHero = ({
     >
       {/* Hands illustration rising from the bottom edge */}
       <motion.div
-        initial={{ y: 160, opacity: 0 }}
+        initial={{ y: 120, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: false, amount: 'some' }}
         transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex justify-center"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex justify-center md:justify-end md:pr-8 lg:pr-16 xl:pr-24"
       >
         <Image
           src="/hero-hands.png"
           alt=""
           width={703}
           height={325}
+          priority
           className="w-[320px] translate-y-6 sm:w-[460px] md:w-[600px] lg:w-[720px]"
         />
       </motion.div>
