@@ -61,11 +61,32 @@ export const MinimalistHero = ({
     <div
       id="top"
       className={cn(
-        'relative flex min-h-screen w-full flex-col items-center justify-between overflow-hidden p-8 md:p-12',
+        'relative flex min-h-[88vh] w-full flex-col items-center justify-between overflow-hidden p-8 md:p-12',
         className
       )}
-      style={{ backgroundColor: '#a8b379' }}
+      style={{
+        backgroundImage: 'url(/hero-bg-texture.webp)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
+      {/* Hands illustration rising from the bottom edge */}
+      <motion.div
+        initial={{ y: 160, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 flex justify-center"
+      >
+        <Image
+          src="/hero-hands.png"
+          alt=""
+          width={703}
+          height={325}
+          className="w-[320px] translate-y-6 sm:w-[460px] md:w-[600px] lg:w-[720px]"
+        />
+      </motion.div>
+
       {/* Header */}
       <header className="relative z-[110] flex w-full max-w-7xl items-center justify-between">
         <motion.div
