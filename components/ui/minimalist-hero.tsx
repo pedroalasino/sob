@@ -6,7 +6,6 @@ import { motion } from 'framer-motion'
 import { PlayCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { Tilt } from '@/components/ui/tilt'
-import { WaveDivider } from '@/components/ui/wave-divider'
 
 interface MinimalistHeroProps {
   logoText: string
@@ -157,17 +156,15 @@ export const MinimalistHero = ({
               <Image
                 src={imageSrc}
                 alt={imageAlt}
-                width={451}
-                height={607}
+                width={318}
+                height={516}
                 priority
-                className="w-[300px] drop-shadow-2xl sm:w-[360px] md:w-[400px] lg:w-[460px]"
+                className="w-[260px] drop-shadow-2xl sm:w-[300px] md:w-[340px] lg:w-[380px]"
               />
             </Tilt>
           </motion.div>
         </div>
       </div>
-
-      <WaveDivider />
     </div>
   )
 }
