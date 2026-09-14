@@ -6,7 +6,7 @@ export const WaveDivider = () => (
     aria-hidden="true"
   >
     <path
-      d="M0,40 C 320,110 620,0 900,30 C 1150,55 1300,20 1440,60 L1440,120 L0,120 Z"
+      d="M0,30 L1440,90 L1440,120 L0,120 Z"
       className="fill-background"
     />
   </svg>
