@@ -49,7 +49,7 @@ function ArrowButton({
         "group flex items-center gap-3 rounded-full py-1.5 pl-5 pr-1.5 text-sm font-medium transition-transform duration-300 ease-out hover:scale-105 active:scale-100",
         variant === "dark"
           ? "bg-white/10 text-white"
-          : "bg-white text-[#4d5d45]",
+          : "bg-white text-[#4b6644]",
         className
       )}
     >
@@ -86,7 +86,7 @@ export default function HeloraHero() {
       className={cn(
         fraunces.variable,
         libreFranklin.variable,
-        "relative w-full bg-[#4d5d45]"
+        "relative w-full bg-[#4b6644]"
       )}
       style={{ fontFamily: "var(--font-libre-franklin)" }}
     >
@@ -111,7 +111,7 @@ export default function HeloraHero() {
               className={cn(
                 "rounded-full px-5 py-2 text-sm transition-colors duration-300 ease-out",
                 link === "Home"
-                  ? "bg-white text-[#4d5d45]"
+                  ? "bg-white text-[#4b6644]"
                   : "text-white/80 hover:bg-white/10 hover:text-white"
               )}
             >
@@ -126,12 +126,12 @@ export default function HeloraHero() {
       </header>
 
       <div className="relative min-h-[820px] overflow-hidden sm:min-h-[760px] lg:min-h-[720px]">
-        {/* soft ambient glow behind the subject */}
+        {/* soft studio-backdrop vignette behind the subject */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(45% 55% at 78% 38%, rgba(255,255,255,0.14), transparent 70%)",
+              "radial-gradient(65% 75% at 72% 35%, #6c8560 0%, #4b6644 55%, #3c5537 100%)",
           }}
           aria-hidden="true"
         />
@@ -167,7 +167,7 @@ export default function HeloraHero() {
                   key={avatar.initials}
                   style={{ backgroundColor: avatar.bg }}
                   className={cn(
-                    "flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#4d5d45] text-xs font-semibold text-[#3a4534] transition-transform duration-300 ease-out",
+                    "flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#4b6644] text-xs font-semibold text-[#33421f] transition-transform duration-300 ease-out",
                     i === 0 && "group-hover:-translate-x-1.5",
                     i === 2 && "group-hover:translate-x-1.5"
                   )}
@@ -196,7 +196,7 @@ export default function HeloraHero() {
             src="/images/hero-person.png"
             alt="Wellness coach with arms crossed"
             draggable={false}
-            className="h-[320px] w-auto object-contain object-bottom transition-transform duration-200 ease-out will-change-transform sm:h-[420px] lg:h-full lg:py-6"
+            className="h-[320px] w-auto object-contain object-bottom transition-transform duration-200 ease-out will-change-transform sm:h-[420px] lg:h-full lg:pt-6"
             style={{
               transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) scale(1.02)`,
             }}
