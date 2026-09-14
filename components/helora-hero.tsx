@@ -107,13 +107,18 @@ export default function HeloraHero() {
         </ArrowButton>
       </header>
 
-      <div
-        ref={imageRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="relative overflow-hidden [perspective:1400px] lg:min-h-[720px]"
-      >
-        <div className="relative z-10 max-w-xl px-6 pb-10 pt-6 md:px-10 lg:pb-16 lg:px-16 lg:pt-12">
+      <div className="relative min-h-[820px] overflow-hidden sm:min-h-[760px] lg:min-h-[720px]">
+        {/* soft studio-backdrop vignette behind the subject */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(65% 75% at 72% 35%, #6c8560 0%, #4b6644 55%, #3c5537 100%)",
+          }}
+          aria-hidden="true"
+        />
+
+        <div className="relative z-10 max-w-xl px-6 pb-16 pt-6 md:px-10 lg:px-16 lg:pt-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs tracking-wide text-white/90">
             <span className="h-1.5 w-1.5 rounded-full bg-white" />
             Nutrición Deportiva · Córdoba
@@ -161,17 +166,38 @@ export default function HeloraHero() {
           </ArrowButton>
         </div>
 
-        {/* the actual studio photo of Nacho: stacked below the copy on mobile, full-bleed background from lg up */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/hero-background.jpg"
-          alt="Nacho, nutricionista deportivo"
-          draggable={false}
-          className="relative h-[340px] w-full object-cover object-[70%_30%] transition-transform duration-200 ease-out will-change-transform sm:h-[420px] lg:absolute lg:inset-0 lg:z-0 lg:h-full lg:object-[78%_35%]"
-          style={{
-            transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) scale(1.03)`,
-          }}
-        />
+        {/* subject photo, cut out and composited straight onto the olive background — the
+            drop-shadow filter follows the cutout's alpha silhouette, so it reads as Nacho's
+            own shadow cast on the wall behind him rather than a generic box-shadow */}
+        <div
+          ref={imageRef}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          className="absolute inset-x-0 bottom-0 flex justify-center [perspective:1400px] lg:inset-x-auto lg:inset-y-0 lg:left-[40%] lg:justify-start"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/hero-person.png"
+            alt="Nacho, nutricionista deportivo"
+            draggable={false}
+            className="h-[320px] w-auto object-contain object-bottom transition-transform duration-200 ease-out will-change-transform sm:h-[420px] lg:h-full lg:pt-6"
+            style={{
+              transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) scale(1.02)`,
+              filter:
+                "drop-shadow(22px 30px 18px rgba(0,0,0,0.45)) drop-shadow(6px 10px 8px rgba(0,0,0,0.3))",
+            }}
+          />
+        </div>
+
+        {/* overlay copy, anchored to the right edge at chest height */}
+        <div className="absolute bottom-6 right-6 z-10 max-w-[13rem] text-right sm:bottom-10 sm:right-8 lg:bottom-auto lg:right-12 lg:top-[52%] lg:max-w-[15rem]">
+          <p className="text-sm leading-relaxed text-white/90">
+            Planes de nutrición a tu medida para que rindas mejor sin resignar lo que te gusta comer.
+          </p>
+          <ArrowButton variant="light" className="ml-auto mt-4">
+            Agendar Consulta
+          </ArrowButton>
+        </div>
       </div>
     </section>
   )
