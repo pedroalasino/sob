@@ -1,21 +1,23 @@
 import React from "react"
+import { cn } from "@/lib/utils"
+import { fraunces, libreFranklin } from "@/lib/fonts"
 
 const cards = [
   {
-    title: "Card one",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: "Nutrición Pre y Post Partido",
+    desc: "Qué comer antes de entrenar o competir, y cómo recuperar después, para que la comida trabaje a tu favor y no en contra.",
     gradientFrom: "#b6ff5c",
     gradientTo: "#1fab45",
   },
   {
-    title: "Card two",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: "Suplementación con Criterio",
+    desc: "Creatina, proteína y qué realmente vale la pena — sin mitos ni gastos de más, adaptado a tu deporte y tus objetivos.",
     gradientFrom: "#34d399",
     gradientTo: "#047857",
   },
   {
-    title: "Card three",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    title: "Planes 100% a tu Medida",
+    desc: "Asesoramiento online o presencial en Córdoba, pensado para tu rutina, tus gustos y tu forma de entrenar.",
     gradientFrom: "#4dff03",
     gradientTo: "#00a86b",
   },
@@ -25,8 +27,13 @@ export default function SkewCards() {
   return (
     <>
       <div
-        className="flex min-h-screen flex-wrap items-center justify-center py-10"
+        className={cn(
+          fraunces.variable,
+          libreFranklin.variable,
+          "flex min-h-screen flex-wrap items-center justify-center py-10"
+        )}
         style={{
+          fontFamily: "var(--font-libre-franklin)",
           background:
             "linear-gradient(135deg, #fdfdfd 0%, #f2f2f2 35%, #f8f8f8 60%, #eeeeee 100%)",
         }}
@@ -58,13 +65,18 @@ export default function SkewCards() {
 
             {/* Content */}
             <div className="relative left-0 z-20 rounded-lg bg-neutral-900/70 p-[20px_40px] text-white shadow-lg backdrop-blur-[10px] transition-all duration-500 group-hover:left-[-25px] group-hover:p-[60px_40px]">
-              <h2 className="mb-2 text-2xl">{title}</h2>
-              <p className="mb-2 text-lg leading-relaxed">{desc}</p>
+              <h2
+                style={{ fontFamily: "var(--font-fraunces)", fontOpticalSizing: "auto" }}
+                className="mb-2 text-2xl font-medium"
+              >
+                {title}
+              </h2>
+              <p className="mb-2 text-base leading-relaxed">{desc}</p>
               <a
                 href="#"
-                className="inline-block rounded bg-white px-3 py-2 text-lg font-bold text-black hover:border hover:border-[rgba(255,0,88,0.4)] hover:bg-[#ffcf4d] hover:shadow-md"
+                className="inline-block rounded bg-white px-3 py-2 text-base font-bold text-black hover:border hover:border-[rgba(255,0,88,0.4)] hover:bg-[#ffcf4d] hover:shadow-md"
               >
-                Read More
+                Ver Más
               </a>
             </div>
           </div>
