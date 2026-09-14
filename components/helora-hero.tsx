@@ -125,7 +125,17 @@ export default function HeloraHero() {
         </ArrowButton>
       </header>
 
-      <div className="relative min-h-[820px] sm:min-h-[760px] lg:min-h-[720px]">
+      <div className="relative min-h-[820px] overflow-hidden sm:min-h-[760px] lg:min-h-[720px]">
+        {/* soft ambient glow behind the subject */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(45% 55% at 78% 38%, rgba(255,255,255,0.14), transparent 70%)",
+          }}
+          aria-hidden="true"
+        />
+
         <div className="relative z-10 max-w-xl px-6 pb-16 pt-6 md:px-10 lg:px-16 lg:pt-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs tracking-wide text-white/90">
             <span className="h-1.5 w-1.5 rounded-full bg-white" />
@@ -174,77 +184,33 @@ export default function HeloraHero() {
           </ArrowButton>
         </div>
 
+        {/* subject photo, cut out and composited straight onto the olive background */}
         <div
           ref={imageRef}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          className="relative h-[420px] w-full [perspective:1400px] sm:h-[460px] lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-[54%]"
+          className="absolute inset-x-0 bottom-0 flex justify-center [perspective:1400px] lg:inset-x-auto lg:inset-y-0 lg:left-[40%] lg:justify-start"
         >
-          <div
-            className="h-full w-full overflow-hidden transition-transform duration-200 ease-out will-change-transform"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/hero-person.png"
+            alt="Wellness coach with arms crossed"
+            draggable={false}
+            className="h-[320px] w-auto object-contain object-bottom transition-transform duration-200 ease-out will-change-transform sm:h-[420px] lg:h-full lg:py-6"
             style={{
-              transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) scale(1.03)`,
+              transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) scale(1.02)`,
             }}
-          >
-            <svg
-              viewBox="0 0 1000 1000"
-              preserveAspectRatio="xMidYMid slice"
-              className="absolute inset-0 h-full w-full"
-              aria-hidden="true"
-            >
-              <defs>
-                <linearGradient id="heloraBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#71805f" />
-                  <stop offset="50%" stopColor="#4d5d45" />
-                  <stop offset="100%" stopColor="#2e3728" />
-                </linearGradient>
-                <radialGradient id="heloraGlow" cx="72%" cy="22%" r="55%">
-                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0.22" />
-                  <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-                </radialGradient>
-                <path
-                  id="heloraLeaf"
-                  d="M0 0 C42 -16 82 4 96 46 C50 58 12 38 0 0 Z"
-                />
-              </defs>
+          />
+        </div>
 
-              <rect width="1000" height="1000" fill="url(#heloraBg)" />
-              <rect width="1000" height="1000" fill="url(#heloraGlow)" />
-
-              <circle cx="760" cy="180" r="230" fill="#f6f3ec" opacity="0.08" />
-              <circle cx="120" cy="820" r="280" fill="#f6f3ec" opacity="0.07" />
-              <circle cx="880" cy="760" r="160" fill="#f6f3ec" opacity="0.06" />
-
-              <g fill="#f6f3ec">
-                <use href="#heloraLeaf" opacity="0.5" transform="translate(660,120) rotate(24) scale(2.1)" />
-                <use href="#heloraLeaf" opacity="0.35" transform="translate(120,260) rotate(-35) scale(1.4)" />
-                <use href="#heloraLeaf" opacity="0.3" transform="translate(760,620) rotate(150) scale(1.7)" />
-                <use href="#heloraLeaf" opacity="0.4" transform="translate(300,780) rotate(-70) scale(1.9)" />
-                <use href="#heloraLeaf" opacity="0.25" transform="translate(60,540) rotate(55) scale(1.1)" />
-                <use href="#heloraLeaf" opacity="0.3" transform="translate(560,900) rotate(-10) scale(1.3)" />
-              </g>
-
-              <g fill="#ffffff" opacity="0.25">
-                <circle cx="150" cy="140" r="3" />
-                <circle cx="200" cy="100" r="2" />
-                <circle cx="870" cy="360" r="3" />
-                <circle cx="900" cy="420" r="2" />
-                <circle cx="80" cy="440" r="2.5" />
-                <circle cx="640" cy="880" r="2.5" />
-              </g>
-            </svg>
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#4d5d45]/40 via-transparent to-transparent" />
-
-            <div className="absolute bottom-8 right-6 max-w-[15rem] text-right sm:bottom-10 sm:right-8">
-              <p className="text-sm leading-relaxed text-white/90">
-                Personalized guidance to help you find balance, clarity, and lasting peace of mind.
-              </p>
-              <ArrowButton variant="light" className="ml-auto mt-4">
-                Book a Session
-              </ArrowButton>
-            </div>
-          </div>
+        {/* overlay copy, anchored to the right edge at chest height */}
+        <div className="absolute bottom-6 right-6 z-10 max-w-[13rem] text-right sm:bottom-10 sm:right-8 lg:bottom-auto lg:right-12 lg:top-[52%] lg:max-w-[15rem]">
+          <p className="text-sm leading-relaxed text-white/90">
+            Support your mental well-being with expert-led therapy and essential self-care.
+          </p>
+          <ArrowButton variant="light" className="ml-auto mt-4">
+            Book a Session
+          </ArrowButton>
         </div>
       </div>
     </section>
