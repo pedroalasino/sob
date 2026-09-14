@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { AnimatePresence, motion } from 'framer-motion'
 import { MessageCircle } from 'lucide-react'
 import { MinimalistHero } from '@/components/ui/minimalist-hero'
+import { Tilt } from '@/components/ui/tilt'
 import { cn } from '@/lib/utils'
 
 function Instagram({ size = 20, className }: { size?: number; className?: string }) {
@@ -40,11 +41,6 @@ const FEATURES = [
     image: '/card-planes-inteligentes.png',
     title: 'Planes Inteligentes',
     desc: 'Planes personalizados según tus objetivos, estilo de vida y necesidades.',
-  },
-  {
-    image: '/card-rendimiento-optimo.png',
-    title: 'Rendimiento Óptimo',
-    desc: 'Mejorá tu rendimiento físico y mental con la nutrición adecuada para tu cuerpo.',
   },
   {
     image: '/card-resultados-reales.png',
@@ -88,28 +84,33 @@ function FitnessNutricion() {
         </p>
       </motion.div>
 
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {FEATURES.map((feature, i) => (
           <motion.div
             key={feature.title}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            whileHover={{ y: -6 }}
             transition={{ duration: 0.45, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="group rounded-2xl border border-border bg-card p-7 text-center transition-colors duration-300 hover:border-accent"
           >
-            <div className="mx-auto mb-5 size-16 overflow-hidden rounded-full ring-4 ring-accent/10 transition-all duration-300 group-hover:ring-accent/40">
-              <Image
-                src={feature.image}
-                alt=""
-                width={120}
-                height={120}
-                className="size-full object-cover"
-              />
-            </div>
-            <h3 className="font-bold">{feature.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{feature.desc}</p>
+            <Tilt
+              maxTilt={8}
+              hoverScale={1.02}
+              hoverLift={6}
+              className="group h-full rounded-2xl border border-border bg-card p-7 text-center shadow-sm transition-[border-color,box-shadow] duration-300 hover:border-accent hover:shadow-2xl"
+            >
+              <div className="mx-auto mb-5 size-16 overflow-hidden rounded-full ring-4 ring-accent/10 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:ring-accent/40">
+                <Image
+                  src={feature.image}
+                  alt=""
+                  width={120}
+                  height={120}
+                  className="size-full object-cover"
+                />
+              </div>
+              <h3 className="font-bold">{feature.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{feature.desc}</p>
+            </Tilt>
           </motion.div>
         ))}
       </div>

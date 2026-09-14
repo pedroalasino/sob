@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { PlayCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { Tilt } from '@/components/ui/tilt'
+import { WaveDivider } from '@/components/ui/wave-divider'
 
 interface MinimalistHeroProps {
   logoText: string
@@ -59,7 +61,7 @@ export const MinimalistHero = ({
       }}
     >
       {/* Header */}
-      <header className="relative z-20 flex w-full max-w-7xl items-center justify-between self-center">
+      <header className="relative z-20 grid w-full max-w-7xl grid-cols-[1fr_auto_1fr] items-center self-center">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -73,7 +75,7 @@ export const MinimalistHero = ({
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="hidden items-center gap-8 md:flex"
+          className="hidden items-center justify-center gap-8 md:flex"
         >
           {navLinks.map((link) => (
             <NavLink key={link.label} href={link.href}>
@@ -91,7 +93,7 @@ export const MinimalistHero = ({
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
           transition={{ duration: 0.5 }}
-          className="rounded-full bg-white px-5 py-2.5 text-sm font-bold text-foreground shadow-lg transition-shadow hover:shadow-xl"
+          className="justify-self-end rounded-full bg-white px-5 py-2.5 text-sm font-bold text-foreground shadow-lg transition-shadow hover:shadow-xl"
         >
           {ctaLabel}
         </motion.a>
@@ -148,24 +150,28 @@ export const MinimalistHero = ({
         </motion.div>
 
         {/* Image */}
-        <div className="relative order-1 flex h-full items-center justify-center overflow-hidden md:order-2 md:justify-end">
+        <div className="relative order-1 flex h-full items-end justify-center overflow-hidden md:order-2 md:justify-end">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 'some' }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           >
-            <Image
-              src={imageSrc}
-              alt={imageAlt}
-              width={451}
-              height={607}
-              priority
-              className="w-[300px] drop-shadow-2xl sm:w-[360px] md:w-[400px] lg:w-[460px]"
-            />
+            <Tilt maxTilt={10}>
+              <Image
+                src={imageSrc}
+                alt={imageAlt}
+                width={451}
+                height={607}
+                priority
+                className="w-[300px] drop-shadow-2xl sm:w-[360px] md:w-[400px] lg:w-[460px]"
+              />
+            </Tilt>
           </motion.div>
         </div>
       </div>
+
+      <WaveDivider />
     </div>
   )
 }
