@@ -54,11 +54,7 @@ export const MinimalistHero = ({
         'relative flex min-h-[88vh] w-full flex-col overflow-hidden p-6 md:p-10',
         className
       )}
-      style={{
-        backgroundImage: 'url(/hero-bg-texture.webp)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      style={{ backgroundColor: '#608259' }}
     >
       {/* Header */}
       <header className="relative z-20 grid w-full max-w-7xl grid-cols-[1fr_auto_1fr] items-center self-center">
