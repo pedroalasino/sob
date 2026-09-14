@@ -750,8 +750,8 @@ export default function NachoPage() {
       <MinimalistHero
         logoText="Nacho."
         navLinks={HERO_NAV_LINKS}
-        imageSrc="/hero-nacho-food.png"
-        imageAlt="Nacho Olmedo rodeado de alimentos saludables: salmón, palta, frutos secos, arándanos y vegetales"
+        imageSrc="/nacho-olmedo.png"
+        imageAlt="Nacho Olmedo, nutricionista deportivo"
         overlayText={{ part1: 'COMER BIEN', part2: 'SIN PASARLA MAL.' }}
         socialLinks={HERO_SOCIAL_LINKS}
         ctaLabel="Hacé tu reserva"

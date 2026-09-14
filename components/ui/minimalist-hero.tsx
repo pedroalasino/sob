@@ -119,10 +119,10 @@ export const MinimalistHero = ({
             <Image
               src={imageSrc}
               alt={imageAlt}
-              width={944}
-              height={594}
+              width={451}
+              height={607}
               priority
-              className="w-[360px] drop-shadow-2xl sm:w-[440px] md:w-[500px] lg:w-[600px]"
+              className="w-[360px] drop-shadow-2xl md:w-[470px] lg:w-[560px]"
             />
           </motion.div>
         </div>
