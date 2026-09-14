@@ -65,12 +65,11 @@ export default function HeloraHero() {
 
   return (
     <section
-      className={cn(
-        fraunces.variable,
-        libreFranklin.variable,
-        "relative w-full bg-[#4b6644]"
-      )}
-      style={{ fontFamily: "var(--font-libre-franklin)" }}
+      className={cn(fraunces.variable, libreFranklin.variable, "relative w-full")}
+      style={{
+        fontFamily: "var(--font-libre-franklin)",
+        background: "radial-gradient(65% 65% at 72% 55%, #6c8560 0%, #4b6644 55%, #3c5537 100%)",
+      }}
     >
       <header className="relative z-20 flex items-center justify-between gap-4 px-6 py-6 md:px-10 lg:px-16">
         <div className="flex items-center gap-2">
@@ -108,15 +107,6 @@ export default function HeloraHero() {
       </header>
 
       <div className="relative min-h-[820px] overflow-hidden sm:min-h-[760px] lg:min-h-[720px]">
-        {/* soft studio-backdrop vignette behind the subject */}
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(65% 75% at 72% 35%, #6c8560 0%, #4b6644 55%, #3c5537 100%)",
-          }}
-          aria-hidden="true"
-        />
 
         <div className="relative z-10 max-w-xl px-6 pb-16 pt-6 md:px-10 lg:px-16 lg:pt-12">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs tracking-wide text-white/90">
