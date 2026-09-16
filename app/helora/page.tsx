@@ -6,8 +6,8 @@ export default function HeloraPage() {
   return (
     <>
       <HeloraHero />
-      <ServiceCards />
       <MissionSection />
+      <ServiceCards />
     </>
   )
 }
