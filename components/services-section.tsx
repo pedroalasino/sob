@@ -23,16 +23,19 @@ const SERVICES = [
 export default function ServicesSection() {
   return (
     <section
-      className={cn(fraunces.variable, libreFranklin.variable, "relative w-full bg-[#12160d]")}
+      className={cn(fraunces.variable, libreFranklin.variable, "relative w-full bg-black")}
       style={{ fontFamily: "var(--font-libre-franklin)" }}
     >
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background: "radial-gradient(60% 60% at 50% 0%, rgba(108,133,96,0.28), transparent 70%)",
-        }}
-        aria-hidden="true"
+      <video
+        className="absolute inset-0 h-full w-full object-cover object-[50%_30%]"
+        src="/videos/mi-mision-nacho.mp4"
+        poster="/images/mi-mision-poster.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
       />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/75" aria-hidden="true" />
 
       <div className="relative mx-auto max-w-5xl px-6 py-20 sm:py-24">
         <h2
