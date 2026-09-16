@@ -50,6 +50,12 @@ export default function ServicesSection() {
                 {title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-white/70">{desc}</p>
+              <a
+                href="#"
+                className="mt-5 inline-block rounded bg-white px-3 py-2 text-sm font-bold text-black transition-colors hover:bg-[#ffcf4d]"
+              >
+                Ver Más
+              </a>
             </div>
           ))}
         </div>
