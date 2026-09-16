@@ -32,7 +32,10 @@ export default function SkewCards() {
           libreFranklin.variable,
           "relative flex flex-wrap items-center justify-center py-6"
         )}
-        style={{ fontFamily: "var(--font-libre-franklin)" }}
+        style={{
+          fontFamily: "var(--font-libre-franklin)",
+          background: "linear-gradient(160deg, #b8b8b8 0%, #d6d6d6 45%, #e8e8e8 100%)",
+        }}
       >
         {cards.map(({ title, desc, gradientFrom, gradientTo }, idx) => (
           <div

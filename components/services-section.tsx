@@ -24,12 +24,15 @@ export default function ServicesSection() {
   return (
     <section
       className={cn(fraunces.variable, libreFranklin.variable, "relative w-full")}
-      style={{ fontFamily: "var(--font-libre-franklin)" }}
+      style={{
+        fontFamily: "var(--font-libre-franklin)",
+        background: "linear-gradient(160deg, #b8b8b8 0%, #d6d6d6 45%, #e8e8e8 100%)",
+      }}
     >
       <div className="relative mx-auto max-w-5xl px-6 pt-12 pb-4 sm:pt-14">
         <h2
           style={{ fontFamily: "var(--font-fraunces)", fontOpticalSizing: "auto" }}
-          className="text-center text-2xl font-medium text-white sm:text-3xl"
+          className="text-center text-2xl font-medium text-[#1c1f18] sm:text-3xl"
         >
           Mis Servicios
         </h2>
@@ -38,7 +41,7 @@ export default function ServicesSection() {
           {SERVICES.map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
-              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-white/20 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-black/40"
+              className="group rounded-lg bg-neutral-900/80 p-6 text-center shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:bg-neutral-900/90 hover:shadow-2xl hover:shadow-black/40"
             >
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-[#e8b45a] transition-all duration-300 group-hover:scale-110 group-hover:bg-white/15">
                 <Icon className="h-5 w-5" strokeWidth={1.75} />
@@ -49,7 +52,7 @@ export default function ServicesSection() {
               >
                 {title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-white/70">{desc}</p>
+              <p className="mt-2 text-sm leading-relaxed text-white/75">{desc}</p>
               <a
                 href="#"
                 className="mt-4 inline-block rounded bg-white px-3 py-2 text-sm font-bold text-black transition-colors hover:bg-[#ffcf4d]"
