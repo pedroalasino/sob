@@ -23,21 +23,10 @@ const SERVICES = [
 export default function ServicesSection() {
   return (
     <section
-      className={cn(fraunces.variable, libreFranklin.variable, "relative w-full bg-black")}
+      className={cn(fraunces.variable, libreFranklin.variable, "relative w-full")}
       style={{ fontFamily: "var(--font-libre-franklin)" }}
     >
-      <video
-        className="absolute inset-0 h-full w-full object-cover object-[50%_30%]"
-        src="/videos/mi-mision-nacho.mp4"
-        poster="/images/mi-mision-poster.jpg"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/75" aria-hidden="true" />
-
-      <div className="relative mx-auto max-w-5xl px-6 py-20 sm:py-24">
+      <div className="relative mx-auto max-w-5xl px-6 pt-20 pb-8 sm:pt-24">
         <h2
           style={{ fontFamily: "var(--font-fraunces)", fontOpticalSizing: "auto" }}
           className="text-center text-3xl font-medium text-white sm:text-4xl"

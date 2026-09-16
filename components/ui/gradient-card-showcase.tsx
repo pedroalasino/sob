@@ -30,13 +30,9 @@ export default function SkewCards() {
         className={cn(
           fraunces.variable,
           libreFranklin.variable,
-          "flex min-h-screen flex-wrap items-center justify-center py-10"
+          "relative flex flex-wrap items-center justify-center py-10"
         )}
-        style={{
-          fontFamily: "var(--font-libre-franklin)",
-          background:
-            "linear-gradient(135deg, #fdfdfd 0%, #f2f2f2 35%, #f8f8f8 60%, #eeeeee 100%)",
-        }}
+        style={{ fontFamily: "var(--font-libre-franklin)" }}
       >
         {cards.map(({ title, desc, gradientFrom, gradientTo }, idx) => (
           <div
