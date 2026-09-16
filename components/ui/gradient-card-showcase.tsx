@@ -30,14 +30,14 @@ export default function SkewCards() {
         className={cn(
           fraunces.variable,
           libreFranklin.variable,
-          "relative flex flex-wrap items-center justify-center py-10"
+          "relative flex flex-wrap items-center justify-center py-6"
         )}
         style={{ fontFamily: "var(--font-libre-franklin)" }}
       >
         {cards.map(({ title, desc, gradientFrom, gradientTo }, idx) => (
           <div
             key={idx}
-            className="group relative m-[40px_30px] h-[400px] w-[320px] transition-all duration-500"
+            className="group relative m-[16px_20px] w-[280px] overflow-hidden rounded-lg transition-all duration-500"
           >
             {/* Skewed gradient panels */}
             <span
@@ -60,14 +60,14 @@ export default function SkewCards() {
             </span>
 
             {/* Content */}
-            <div className="relative left-0 z-20 rounded-lg bg-neutral-900/70 p-[20px_40px] text-white shadow-lg backdrop-blur-[10px] transition-all duration-500 group-hover:left-[-25px] group-hover:p-[60px_40px]">
+            <div className="relative left-0 z-20 rounded-lg bg-neutral-900/70 p-[20px_28px] text-white shadow-lg backdrop-blur-[10px] transition-all duration-500 group-hover:left-[-16px] group-hover:p-[32px_28px]">
               <h2
                 style={{ fontFamily: "var(--font-fraunces)", fontOpticalSizing: "auto" }}
-                className="mb-2 text-2xl font-medium"
+                className="mb-2 text-xl font-medium"
               >
                 {title}
               </h2>
-              <p className="mb-2 text-base leading-relaxed">{desc}</p>
+              <p className="mb-2 text-sm leading-relaxed">{desc}</p>
               <a
                 href="#"
                 className="inline-block rounded bg-white px-3 py-2 text-base font-bold text-black hover:border hover:border-[rgba(255,0,88,0.4)] hover:bg-[#ffcf4d] hover:shadow-md"

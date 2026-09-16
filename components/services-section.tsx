@@ -26,33 +26,33 @@ export default function ServicesSection() {
       className={cn(fraunces.variable, libreFranklin.variable, "relative w-full")}
       style={{ fontFamily: "var(--font-libre-franklin)" }}
     >
-      <div className="relative mx-auto max-w-5xl px-6 pt-20 pb-8 sm:pt-24">
+      <div className="relative mx-auto max-w-5xl px-6 pt-12 pb-4 sm:pt-14">
         <h2
           style={{ fontFamily: "var(--font-fraunces)", fontOpticalSizing: "auto" }}
-          className="text-center text-3xl font-medium text-white sm:text-4xl"
+          className="text-center text-2xl font-medium text-white sm:text-3xl"
         >
           Mis Servicios
         </h2>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICES.map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
-              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-8 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-white/20 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-black/40"
+              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 text-center backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-white/20 hover:bg-white/[0.08] hover:shadow-2xl hover:shadow-black/40"
             >
-              <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-[#e8b45a] transition-all duration-300 group-hover:scale-110 group-hover:bg-white/15">
-                <Icon className="h-6 w-6" strokeWidth={1.75} />
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-[#e8b45a] transition-all duration-300 group-hover:scale-110 group-hover:bg-white/15">
+                <Icon className="h-5 w-5" strokeWidth={1.75} />
               </span>
               <h3
                 style={{ fontFamily: "var(--font-fraunces)", fontOpticalSizing: "auto" }}
-                className="mt-5 text-lg font-medium text-white"
+                className="mt-4 text-base font-medium text-white"
               >
                 {title}
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-white/70">{desc}</p>
+              <p className="mt-2 text-sm leading-relaxed text-white/70">{desc}</p>
               <a
                 href="#"
-                className="mt-5 inline-block rounded bg-white px-3 py-2 text-sm font-bold text-black transition-colors hover:bg-[#ffcf4d]"
+                className="mt-4 inline-block rounded bg-white px-3 py-2 text-sm font-bold text-black transition-colors hover:bg-[#ffcf4d]"
               >
                 Ver Más
               </a>
