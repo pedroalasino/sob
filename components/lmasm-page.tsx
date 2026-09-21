@@ -1,9 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { SplineScene } from '@/components/ui/splite'
-import { Spotlight } from '@/components/ui/spotlight'
-import { CursorSpotlight } from '@/components/ui/cursor-spotlight'
+import IgnacioHero from '@/components/ignacio-hero'
 
 export default function LMASMPage() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -65,43 +63,6 @@ export default function LMASMPage() {
         .social-icons { display: flex; gap: 15px; }
         .social-icons a { color: #4a4a4a; font-size: 24px; transition: color 0.3s ease; text-decoration: none; }
         .social-icons a:hover { color: #3498db; }
-
-        /* ── HERO with 3D scene ── */
-        .hero { height: 95vh; display: flex; align-items: center; justify-content: center; position: relative; margin-top: 90px; overflow: hidden; }
-        .hero-3d-card {
-          width: 96%; height: 90%;
-          background: rgba(0,0,0,0.92);
-          border-radius: 12px;
-          overflow: hidden;
-          position: relative;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-          display: flex;
-        }
-        .hero-left {
-          flex: 1; padding: 60px 48px;
-          display: flex; flex-direction: column; justify-content: center;
-          position: relative; z-index: 10;
-        }
-        .hero-left h1 {
-          font-size: clamp(2rem, 4vw, 3.5rem);
-          font-weight: 700;
-          background: linear-gradient(to bottom, #f0f0f0, #aaa);
-          -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-          background-clip: text; line-height: 1.2;
-        }
-        .hero-left p { margin-top: 16px; color: #ccc; max-width: 420px; font-size: 1rem; line-height: 1.7; }
-        .hero-cta-btn {
-          display: inline-flex; align-items: center; gap: 10px;
-          background: linear-gradient(135deg, #e67e22, #f39c12);
-          color: white; text-decoration: none;
-          padding: 14px 36px; border-radius: 40px;
-          font-size: 1rem; font-weight: 700;
-          box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-          margin-top: 28px; transition: transform .2s, box-shadow .2s;
-          width: fit-content;
-        }
-        .hero-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(0,0,0,0.45); }
-        .hero-right { flex: 1; position: relative; min-height: 400px; }
 
         /* Promo banner */
         .promo-banner {
@@ -165,10 +126,6 @@ export default function LMASMPage() {
         .btn:hover { background-color: #c4b393; }
 
         @media (max-width: 768px) {
-          .hero { height: 70vh; margin-top: 120px; }
-          .hero-3d-card { flex-direction: column; }
-          .hero-left { padding: 30px 24px; }
-          .hero-right { min-height: 260px; }
           .location-container { grid-template-columns: 1fr; }
           .section-title { font-size: 26px; }
         }
@@ -214,37 +171,8 @@ export default function LMASMPage() {
         </div>
       </div>
 
-      {/* ── HERO SECTION with 3D Spline Curtain ── */}
-      <section id="home" className="hero">
-        <div className="hero-3d-card">
-          {/* Static spotlight */}
-          <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#d2c5a8" />
-          {/* Cursor-following spotlight */}
-          <CursorSpotlight size={350} />
-
-          {/* Left: copy */}
-          <div className="hero-left">
-            <h1>
-              Cortinas a Medida<br />en 3D
-            </h1>
-            <p>
-              Explorá nuestra colección de cortinas con una experiencia interactiva en 3D.
-              Diseños exclusivos para cada ambiente, fabricados con materiales de primera calidad.
-            </p>
-            <a href="#cotizador" className="hero-cta-btn">
-              <i className="fas fa-calculator" /> Cotizá Ya
-            </a>
-          </div>
-
-          {/* Right: 3D Spline scene */}
-          <div className="hero-right">
-            <SplineScene
-              scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-              className="w-full h-full"
-            />
-          </div>
-        </div>
-      </section>
+      {/* ── HERO SECTION: Ignacio Olmedo, Nutricionista ── */}
+      <IgnacioHero />
 
       {/* Products Section */}
       <section id="products">
